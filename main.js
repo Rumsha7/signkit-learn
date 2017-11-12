@@ -13,7 +13,7 @@ var recentSend = "";
 
 var update = function update() {
 	var settings = {
-  		"async": true,
+  	"async": true,
  		"crossDomain": true,
  		'jsonp': "callback",
  		"url": "http://127.0.0.1:8080/update",
@@ -24,12 +24,12 @@ var update = function update() {
 	  //console.log(response);
 	  console.log(myJson);
 	  data = JSON.parse(myJson);
-	  if (data.user != recentSend) {
+	  if (data.user != recentSend || data.user != "") {
 	  	recentSend = data.user;
 	  	//recentSend = demoResponse.user;
 	  	updateSend();
 	  }
-	  if (data.chatbot != recentReceive) {
+	  if (data.chatbot != recentReceive || data.chatbot != "") {
 	  	recentReceive = data.chatbot;
 	  	//recentReceive = demoResponse.chatbot;
 	  	updateReceive();
@@ -39,12 +39,12 @@ var update = function update() {
 
 function updateReceive() {
 	var container = document.getElementById("container")
-	container.innerHTML += '<div class="receive"><p>' + recentReceive + '</p></div>"';
+	container.innerHTML += '<div class="receive"><p>' + recentReceive + '</p></div>';
 }
 
 function updateSend() {
 	var container = document.getElementById("container")
-	container.innerHTML += '<div class="send"><p>' + recentSend + '</p></div>"';
+	container.innerHTML += '<div class="send"><p>' + recentSend + '</p></div>';
 }
 
 setInterval(update, 5000);

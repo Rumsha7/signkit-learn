@@ -43,3 +43,19 @@ hr {
   border-radius: 15px;
   background-color: #FFBB05;
 }
+
+.receivePadding {
+  grid-column-start: send;
+}
+
+.sendPadding {
+  grid-column-start: receive;
+}
+
+.classThree {
+
+}
+
+.classFour {
+
+}
