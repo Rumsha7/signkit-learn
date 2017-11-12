@@ -1,0 +1,44 @@
+#Inspiration
+Deaf cousins and 
+
+There was a member on the team that wanted to learn sign language but there was nobody around with who she could practice with and videos are fine but she wanted to make sure that she was actually signing things correctly so we built Sign-Kit Learn to help her learn how to sign in with an interactive bot using machine learning
+
+
+#What it does
+Any laptop webcam is sufficient for our cognitive neural net to correctly parse the word you're signing. Our Machine Learning algorithm is trained on 100s of images all on Microsoft's Azure. We used Microsoft's CustomVision API to upload and tag 100s of images. Once we correctly parse the sign, we transmit the text to a conversive bot using Microsoft's BotFramework.
+#How we built it
+
+#Challenges we ran into
+-teaching our sign language intrepreter due to insufficient data and the minimal data storage
+-figuring out how to train the Microsoft bot to recognize and respond to intents
+-figuring out how to program the Microsoft bot to carry a conversation
+-multi-threading: getting our python server to talk to both the camera and the web app at the same time
+
+
+#Accomplishments that we're proud of
+-taught it to recognize complex signed words such as "weather"
+-built our first microsoft bot using Luis and the Microsoft Bot Framework. (more about how awesome luis is and that it was our first time)
+-we built our FIRST python server
+-connecting the camera, sign language image learning, and 
+
+
+
+#What we learned
+-we learned about custom vision
+-machine learning, training bots
+-connecting everything together
+-in python, programming the camera to autommatically snap a picture of the user
+-setting up a python server (using cherrypy)
+-we learned about the hack with jsonp to enable access control
+-learned how to create, send and parse json objects
+
+
+
+#Built with
+custom vision
+Luis.ai
+Microsoft Bot Framework
+node.js
+python
+cherrypy
+(web app?)
