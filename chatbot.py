@@ -40,3 +40,15 @@ resp = json.loads(r.text)
 messageIndex = int(resp['watermark'])
 messageText = resp['activities'][messageIndex]['text']
 print messageText
+
+data = { "user": command,
+         "chatbot": messageText
+         }
+
+class Root(object):
+    @cherrypy.expose
+    def index(self):
+        return json.dumps(data)
+
+if __name__ == '__main__':
+   cherrypy.quickstart(Root(), '/')
