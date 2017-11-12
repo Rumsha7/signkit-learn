@@ -1,6 +1,7 @@
 import requests
 import json
 import time
+import cherrypy
 
 baseUrl = "https://directline.botframework.com/"
 authHeader = {
@@ -47,7 +48,8 @@ data = { "user": command,
 
 class Root(object):
     @cherrypy.expose
-    def index(self):
+    def update(self):
+        cherrypy.response.headers['Access-Control-Allow-Origin'] = "*"
         return json.dumps(data)
 
 if __name__ == '__main__':

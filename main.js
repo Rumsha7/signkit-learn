@@ -1,4 +1,7 @@
-var serverUrl = "192.168.0.1";
+var serverUrl = "http://127.0.0.1:8080";
+
+var headers = new Headers();
+headers.append("Access-Control-Allow-Origin", "*");
 
 var demoResponse = {
 	"user": "Hello",
@@ -9,19 +12,26 @@ var recentReceive = "";
 var recentSend = "";
 
 var update = function update() {
-	fetch(serverUrl + "/update").then(function(response) {
-	  return response.json();
-	}).then(function(myJson) {
+	var settings = {
+  		"async": true,
+ 		"crossDomain": true,
+ 		'jsonp': "callback",
+ 		"url": "http://127.0.0.1:8080/update",
+		"method": "GET"
+	}
+
+	$.ajax(settings).done(function (myJson) {
+	  //console.log(response);
 	  console.log(myJson);
 	  data = JSON.parse(myJson);
 	  if (data.user != recentSend) {
-	  	//recentSend = data.user;
-	  	recentSend = demoResponse.user;
+	  	recentSend = data.user;
+	  	//recentSend = demoResponse.user;
 	  	updateSend();
 	  }
 	  if (data.chatbot != recentReceive) {
-	  	//recentReceive = data.chatbot;
-	  	recentReceive = demoResponse.chatbot;
+	  	recentReceive = data.chatbot;
+	  	//recentReceive = demoResponse.chatbot;
 	  	updateReceive();
 	  }
 	});
@@ -32,9 +42,9 @@ function updateReceive() {
 	container.innerHTML += '<div class="receive"><p>' + recentReceive + '</p></div>"';
 }
 
-function updateReceive() {
+function updateSend() {
 	var container = document.getElementById("container")
 	container.innerHTML += '<div class="send"><p>' + recentSend + '</p></div>"';
 }
 
-setInterval(update, 1000);
+setInterval(update, 5000);
