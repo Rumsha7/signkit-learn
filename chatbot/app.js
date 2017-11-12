@@ -78,12 +78,12 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 
 .matches('yes',(session,args) => {
     //session.send(session.message.entity);
-    session.send('Me too! Winter is my favorite season!');
+    session.send('Me too! Winter is my favorite season! \nWhere are you planning to spend your holidays?');
 })
 
 .matches('no',(session,args) => {
     //session.send(session.message.entity);
-    session.send('Aww, winter is my favorite season!');
+    session.send('Aww, winter is my favorite season! \nWhere are you planning to spend your holidays?');
 })
 
 
@@ -96,6 +96,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 // })
 
 .matches('Weather.simple',(session,args) => {
+    //session.send('Where would you like the weather for?');
     session.send('Winter is coming! \nAre you excited?');
     /* session.send("Weather request detected");
     getJSON('https://api.darksky.net/forecast/8847312d6b1d415e66c4e8b42961d5a5/40.3440,-74.6514', function(err, forecast) {
@@ -105,6 +106,12 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
     session.send("received");
     }});*/ 
 })
+
+.matches('user.location',(session,args) => {
+    //session.send('Winter is coming! \nAre you excited?');
+    session.send("That\'s nice. I\'ll be spending it where I am too.");
+})
+
 
 // .matches('user.location',(session,args) => {
 //     session.send("Give user's location");
