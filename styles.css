@@ -1,0 +1,45 @@
+@font-face {
+  font-family: Raleway;
+  src: url(Raleway-Regular.ttf);
+}
+
+body {
+  font-family: Raleway;
+}
+
+h1 {
+  text-align: center;
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid #eee;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: [left-padding] 15% [receive] 30% [empty] 10% [send] 30% [right-padding] 15%;
+}
+
+.send {
+  grid-column-start: send;
+  text-align: right;
+}
+
+.send > p {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #02A3F4;
+  color: white;
+}
+
+.receive {
+  grid-column-start: receive;
+  text-align: left;
+}
+
+.receive > p {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #FFBB05;
+}
