@@ -15,7 +15,7 @@ headers = {
         "Prediction-Key": "c1398dfc07d743ceaa1dac15e96e4a07",
         "Content-Type": "application/octet-stream"
         }
-interval = float(8)
+interval = float(5)
 
 baseUrl = "https://directline.botframework.com/"
 authHeader = {

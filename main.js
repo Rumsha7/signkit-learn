@@ -24,12 +24,12 @@ var update = function update() {
 	  //console.log(response);
 	  console.log(myJson);
 	  data = JSON.parse(myJson);
-	  if (data.user != recentSend || data.user != "") {
+	  if (data.user != "") {
 	  	recentSend = data.user;
 	  	//recentSend = demoResponse.user;
 	  	updateSend();
 	  }
-	  if (data.chatbot != recentReceive || data.chatbot != "") {
+	  if (data.chatbot != "") {
 	  	recentReceive = data.chatbot;
 	  	//recentReceive = demoResponse.chatbot;
 	  	updateReceive();
